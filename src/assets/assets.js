@@ -7,6 +7,10 @@ import investment from './money.png'
 import billpay from './bill.png'
 import business from './deal.png'
 import questionMark from './questionMark.png'
+import verve from './verve.png'
+import visa from './visa.png'
+import paypal from './PayPal.png'
+import payoneer from './Payoneer.png'
 
 export const assets = {
     logo,
@@ -17,5 +21,9 @@ export const assets = {
     investment,
     billpay,
     business,
-    questionMark
+    questionMark,
+    verve,
+    visa,
+    paypal,
+    payoneer
 }

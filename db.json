@@ -63,5 +63,23 @@
       "question": "What security measures does Reen Bank have in place to protect my financial information?",
       "answer": "Reen Bank uses advanced encryption, multi-factor authentication, and continuous monitoring to safeguard your financial information. We also regularly update our systems to stay ahead of potential threats and ensure your data remains secure."
     }
+  ],
+  "paymentMethods":[
+    {
+      "id": 1,
+      "method": "verve"
+    },
+    {
+      "id": 2,
+      "method": "visa"
+    },
+    {
+      "id": 3,
+      "method": "paypal"
+    },
+    {
+      "id": 4,
+      "method": "payoneer"
+    }
   ]
 }
