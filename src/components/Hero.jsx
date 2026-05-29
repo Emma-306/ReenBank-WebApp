@@ -26,7 +26,7 @@ export const Hero = () => {
         <img
           src={assets.bgImage1}
           alt="Hero"
-          className="w-full max-w-[900px] object-cover"
+          className="w-full max-w-[750px] object-cover"
         />
       </div>
     </div>
