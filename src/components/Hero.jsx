@@ -14,10 +14,10 @@ export const Hero = () => {
           with Reen Bank
         </p>
         <div className="w-full h-24 mt-6 2xl:mt-12 mb-2 2xl:mb-6 flex flex-row">
-          <button className="border-3 border-green-600/50 px-14 py-2 h-16 rounded-md font-semibold text-green-600/50 hover:bg-green-800/80 hover:text-white transition-all duration-300 cursor-pointer whitespace-nowrap">
+          <button className="border-3 border-green-600/50 px-6 lg:px-14 py-2 h-16 rounded-md font-semibold text-green-600/50 hover:bg-green-800/80 hover:text-white transition-all duration-300 cursor-pointer whitespace-nowrap">
             Get Started
           </button>
-          <button className="border-3 border-green-600/50 px-14 py-2 h-16 rounded-md font-semibold text-green-600/50 hover:bg-green-800/80 hover:text-white transition-all duration-300 cursor-pointer ml-4 whitespace-nowrap">
+          <button className="border-3 border-green-600/50 px-6 lg:px-14 py-2 h-16 rounded-md font-semibold text-green-600/50 hover:bg-green-800/80 hover:text-white transition-all duration-300 cursor-pointer ml-4 whitespace-nowrap">
             Learn More
           </button>
         </div>

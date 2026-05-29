@@ -36,5 +36,32 @@
       "desc": "Reen Bank could offer a range of banking services for small and medium-sized businesses, including checking accounts, business loans, merchant services, and cash management tools. These services could help businesses streamline their financial operations and grow their operations over time.",
       "image": "business"
     }
+  ],
+  "faqs": [
+    { 
+      "id": 1,
+      "question": "How do I sign up for an account with Reen Bank?",
+      "answer": "You can sign up for an account with Reen Bank online by visiting our website and filling out the online application form. Once your application is approved, you will receive instructions for setting up your account and accessing our online banking platform."
+    },
+    {
+      "id": 2,
+      "question": "What types of accounts does Reen Bank offer?",
+      "answer": "Reen Bank offers a variety of accounts including personal checking, savings, business accounts, and specialized investment accounts. Each account type is designed to meet different financial needs, whether you’re managing daily expenses, saving for the future, or running a business."
+    },
+    {
+      "id": 3,
+      "question": "Is Reen Bank FDIC insured?",
+      "answer": "Yes, Reen Bank is FDIC insured. This means that deposits are protected up to the maximum amount allowed by law, giving you peace of mind that your money is safe."
+    },
+    {
+      "id": 4,
+      "question": "How can I access my Reen Bank account online?",
+      "answer": "You can access your Reen Bank account online by logging into our secure banking portal using your username and password. From there, you can view balances, transfer funds, pay bills, and manage your account anytime, anywhere."
+    },
+    {
+      "id": 5,
+      "question": "What security measures does Reen Bank have in place to protect my financial information?",
+      "answer": "Reen Bank uses advanced encryption, multi-factor authentication, and continuous monitoring to safeguard your financial information. We also regularly update our systems to stay ahead of potential threats and ensure your data remains secure."
+    }
   ]
 }

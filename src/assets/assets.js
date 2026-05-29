@@ -6,6 +6,7 @@ import credit from './credit-card.png'
 import investment from './money.png'
 import billpay from './bill.png'
 import business from './deal.png'
+import questionMark from './questionMark.png'
 
 export const assets = {
     logo,
@@ -15,5 +16,6 @@ export const assets = {
     credit,
     investment,
     billpay,
-    business
+    business,
+    questionMark
 }
