@@ -11,10 +11,15 @@ import verve from './verve.png'
 import visa from './visa.png'
 import paypal from './PayPal.png'
 import payoneer from './Payoneer.png'
+import bgImage2 from './bg-image-2.png'
+import facebook from './facebook.png'
+import twitter from './twitter.png'
+import instagram from './instagram.png'
 
 export const assets = {
     logo,
     bgImage1,
+    bgImage2,
     savings,
     loans,
     credit,
@@ -25,5 +30,8 @@ export const assets = {
     verve,
     visa,
     paypal,
-    payoneer
+    payoneer,
+    facebook,
+    twitter,
+    instagram
 }

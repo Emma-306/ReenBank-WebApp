@@ -4,6 +4,7 @@ import { Services } from "../components/Services";
 import { assets } from "../assets/assets";
 import { Faqs } from "../components/Faqs";
 import { SupportedPayments } from "../components/SupportedPayments";
+import { Footer } from "../components/Footer";
 
 export const LandingPage = () => {
   return (
@@ -21,6 +22,9 @@ export const LandingPage = () => {
       </div>
       <div className="px-6 lg:px-16 py-8 md:py-16 flex flex-col items-center justify-center">
         <SupportedPayments />
+      </div>
+      <div className="bg-green-400/20 pl-6 lg:pl-16 pt-8 md:pt-16">
+        <Footer/>
       </div>
     </>
   );

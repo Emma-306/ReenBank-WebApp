@@ -3,9 +3,9 @@ import { assets } from '../assets/assets'
 export const NavBar = () => {
   return (
     <div className='w-full flex items-center justify-between mb-20 relative'>
-        <div className='flex flex-row items-center gap-12 xl:gap-28'>
+        <div className='flex flex-row items-center gap-4 md:gap-12 xl:gap-28'>
           <img src={assets.logo} alt='logo' className='w-44 h-10 sm:w-64 sm:h-16'/>
-          <nav className='flex flex-row items-center text-lg gap-6 xl:gap-12'>
+          <nav className='flex flex-row items-center text-base md:text-lg gap-2  sm:gap-6 xl:gap-12'>
             <a href="about" className='hover:scale-110 transition-all duration-300 hover:underline underline-offset-8 hover:text-green-900'>About</a>
             <a href="contact-us" className='hover:scale-110 transition-all duration-300 hover:underline underline-offset-8 hover:text-green-900 whitespace-nowrap'>Contact Us</a>
           </nav>
