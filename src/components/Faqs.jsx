@@ -29,27 +29,19 @@ export const Faqs = () => {
     fetchFaqs();
   }, []);
 
-  useEffect(() => {
+  const handleFaqClick = (faq) => {
+    setActiveFaq((prev) => (prev?.id === faq.id ? prev : faq));
+
     const mq = window.matchMedia("(max-width: 767px)");
 
-    const handleScroll = () => {
-      if (mq.matches && activeFaq) {
+    if (mq.matches) {
+      setTimeout(() => {
         topRef.current?.scrollIntoView({
           behavior: "smooth",
           block: "start",
         });
-      }
-    };
-
-    handleScroll();
-
-    mq.addEventListener("change", handleScroll);
-
-    return () => mq.removeEventListener("change", handleScroll);
-  }, [activeFaq]);
-
-  const handleFaqClick = (faq) => {
-    setActiveFaq((prev) => (prev?.id === faq.id ? prev : faq));
+      }, 0);
+    }
   };
 
   if (loading) {
@@ -67,7 +59,7 @@ export const Faqs = () => {
       <h2 className="text-5xl font-semibold my-10">FAQs</h2>
 
       <div className="w-full flex flex-col md:flex-row justify-between py-5 gap-10">
-        {/* LEFT SIDE - ACTIVE FAQ */}
+        {/* LEFT SIDE */}
         <div ref={topRef} className="w-full md:w-2/5">
           {activeFaq ? (
             <div>
@@ -83,7 +75,7 @@ export const Faqs = () => {
           )}
         </div>
 
-        {/* RIGHT SIDE - QUESTIONS LIST */}
+        {/* RIGHT SIDE */}
         <div className="w-full md:w-2/5 flex flex-col gap-4">
           {faqs.map((faq) => (
             <button

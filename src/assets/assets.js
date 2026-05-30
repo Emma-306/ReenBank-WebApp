@@ -15,6 +15,7 @@ import bgImage2 from './bg-image-2.png'
 import facebook from './facebook.png'
 import twitter from './twitter.png'
 import instagram from './instagram.png'
+import bankingTheme from './banking-theme.png'
 
 export const assets = {
     logo,
@@ -33,5 +34,6 @@ export const assets = {
     payoneer,
     facebook,
     twitter,
-    instagram
+    instagram,
+    bankingTheme
 }
