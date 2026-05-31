@@ -16,6 +16,9 @@ import facebook from './facebook.png'
 import twitter from './twitter.png'
 import instagram from './instagram.png'
 import bankingTheme from './banking-theme.png'
+import envelope from './envelope.png'
+import lock from './lock.png'
+import success from './success.gif'
 
 export const assets = {
     logo,
@@ -35,5 +38,8 @@ export const assets = {
     facebook,
     twitter,
     instagram,
-    bankingTheme
+    bankingTheme,
+    envelope,
+    lock,
+    success
 }

@@ -4,10 +4,13 @@ import { AuthLayout } from "./pages/AuthLayout";
 import { Login } from "./components/AuthLayout/Login";
 import { Register } from "./components/AuthLayout/Register";
 import { VerifyOtp } from "./components/AuthLayout/VerifyOtp";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const App = () => {
   return (
     <div>
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/auth" element={<AuthLayout />}>

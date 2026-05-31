@@ -89,7 +89,7 @@ export const Faqs = () => {
                 active:scale-[0.98]
                 ${
                   activeFaq?.id === faq.id
-                    ? "text-green-600"
+                    ? "text-green-600/70"
                     : "text-purple-900"
                 }
               `}
