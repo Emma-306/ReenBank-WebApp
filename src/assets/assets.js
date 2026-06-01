@@ -23,6 +23,15 @@ import user from './user.png'
 import search from './search.png'
 import bell from './bell.png'
 import profileImage from './profile-image.png'
+import accounts from "./nav/accounts.png";
+import accountsActive from "./nav/accounts-2.png";
+import overview from "./nav/overview.png";
+import overviewActive from "./nav/overview-2.png";
+import transactions from "./nav/transactions.png";
+import transactionsActive from "./nav/transactions-2.png";
+import profile from "./nav/profile.png";
+import profileActive from "./nav/profile-2.png";
+import arrowLeft from "./arrow-left.png";
 
 export const assets = {
     logo,
@@ -49,5 +58,17 @@ export const assets = {
     user,
     search,
     bell,
-    profileImage
+    profileImage,
+    arrowLeft
+}
+
+export const navItems = {
+    accounts,
+    accountsActive,
+    overview,
+    overviewActive,
+    transactions,
+    transactionsActive,
+    profile,
+    profileActive
 }

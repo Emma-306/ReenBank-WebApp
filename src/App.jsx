@@ -8,6 +8,9 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Dashboard } from "./pages/Dashboard";
 import { Overview } from "./components/Dashboard/Overview";
+import { Accounts } from "./components/Dashboard/Accounts";
+import { Transactions } from "./components/Dashboard/Transactions";
+import { Profile } from "./components/Dashboard/Profile";
 
 export const App = () => {
   return (
@@ -22,6 +25,9 @@ export const App = () => {
         </Route>
         <Route path='/dashboard' element={<Dashboard/>}>
           <Route index element={<Overview />} />
+          <Route path="accounts" element={<Accounts />} />
+          <Route path="transactions" element={<Transactions />} />
+          <Route path="profile" element={<Profile />} />
         </Route>
       </Routes>
     </div>
