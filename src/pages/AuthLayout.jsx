@@ -27,7 +27,16 @@ export const AuthLayout = () => {
         </h1>
 
         <h2 className="text-3xl sm:text-4xl xl:text-6xl font-bold text-black/80 leading-tight xl:leading-16 2xl:leading-20">
-          {isLoginPage ? "Welcome Back" : "Experience Hassle-Free Banking"}
+          <p>
+            {isLoginPage ? (
+              "Welcome Back"
+            ) : (
+              <>
+                Experience <br />
+                hassle-Free Banking
+              </>
+            )}
+          </p>
         </h2>
 
         <p className="font-semibold text-gray-500 w-full lg:w-5/6 mt-3 md:mt-4 2xl:mt-10 mb-10 md:mb-16 xl:mb-24">
@@ -37,9 +46,21 @@ export const AuthLayout = () => {
         </p>
 
         <div className="flex gap-3 md:gap-4">
-          <img src={assets.facebook} alt="Facebook" className="h-5 w-5 md:h-6 md:w-6" />
-          <img src={assets.twitter} alt="Twitter" className="h-5 w-5 md:h-6 md:w-6" />
-          <img src={assets.instagram} alt="Instagram" className="h-5 w-5 md:h-6 md:w-6" />
+          <img
+            src={assets.facebook}
+            alt="Facebook"
+            className="h-5 w-5 md:h-6 md:w-6"
+          />
+          <img
+            src={assets.twitter}
+            alt="Twitter"
+            className="h-5 w-5 md:h-6 md:w-6"
+          />
+          <img
+            src={assets.instagram}
+            alt="Instagram"
+            className="h-5 w-5 md:h-6 md:w-6"
+          />
         </div>
       </div>
 

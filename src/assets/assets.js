@@ -19,6 +19,7 @@ import bankingTheme from './banking-theme.png'
 import envelope from './envelope.png'
 import lock from './lock.png'
 import success from './success.gif'
+import user from './user.png'
 
 export const assets = {
     logo,
@@ -41,5 +42,6 @@ export const assets = {
     bankingTheme,
     envelope,
     lock,
-    success
+    success,
+    user
 }

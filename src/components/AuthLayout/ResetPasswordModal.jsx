@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { assets } from "../../assets/assets";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 export const ResetPasswordModal = ({ onClose }) => {
   const [step, setStep] = useState(1);
@@ -75,6 +76,8 @@ export const ResetPasswordModal = ({ onClose }) => {
 
     if (password !== confirmPassword) {
       toast.error("Passwords do not match");
+      setConfirmPassword("");
+      setPassword("");
       return;
     }
 
@@ -128,7 +131,13 @@ export const ResetPasswordModal = ({ onClose }) => {
             </h2>
 
             <p className="text-left text-gray-600">
-              A 6-digit code has been sent to your email.
+              A 6-digit code has been sent to your email. 
+              <Link
+            to="/auth/register"
+            className="text-[#36B37E] hover:underline ml-2"
+          >
+            Change
+          </Link>
             </p>
 
             <div className="flex justify-between gap-3">
@@ -228,7 +237,7 @@ export const ResetPasswordModal = ({ onClose }) => {
             </div>
 
             {/* TEXT LEFT */}
-            <div className="text-left space-y-3">
+            <div className="text-center space-y-3">
               <h2 className="text-lg font-semibold text-black/80 ">
                 Your password has been changed successfully!
               </h2>

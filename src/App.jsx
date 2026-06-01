@@ -6,6 +6,7 @@ import { Register } from "./components/AuthLayout/Register";
 import { VerifyOtp } from "./components/AuthLayout/VerifyOtp";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Dashboard } from "./pages/Dashboard";
 
 export const App = () => {
   return (
@@ -17,6 +18,9 @@ export const App = () => {
           <Route index element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="verify-otp" element={<VerifyOtp />} />
+        </Route>
+        <Route path='/dashboard' element={<Dashboard/>}>
+          <></>
         </Route>
       </Routes>
     </div>
