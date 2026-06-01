@@ -7,6 +7,7 @@ import { VerifyOtp } from "./components/AuthLayout/VerifyOtp";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Dashboard } from "./pages/Dashboard";
+import { Overview } from "./components/Dashboard/Overview";
 
 export const App = () => {
   return (
@@ -20,7 +21,7 @@ export const App = () => {
           <Route path="verify-otp" element={<VerifyOtp />} />
         </Route>
         <Route path='/dashboard' element={<Dashboard/>}>
-          <></>
+          <Route index element={<Overview />} />
         </Route>
       </Routes>
     </div>

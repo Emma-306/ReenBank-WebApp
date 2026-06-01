@@ -20,6 +20,9 @@ import envelope from './envelope.png'
 import lock from './lock.png'
 import success from './success.gif'
 import user from './user.png'
+import search from './search.png'
+import bell from './bell.png'
+import profileImage from './profile-image.png'
 
 export const assets = {
     logo,
@@ -43,5 +46,8 @@ export const assets = {
     envelope,
     lock,
     success,
-    user
+    user,
+    search,
+    bell,
+    profileImage
 }
