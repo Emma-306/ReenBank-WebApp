@@ -83,6 +83,29 @@ export const ResetPasswordModal = ({ onClose }) => {
 
     setStep(4);
   };
+  const handleOtpPaste = (e) => {
+    e.preventDefault();
+
+    const pastedData = e.clipboardData
+      .getData("text")
+      .replace(/\D/g, "")
+      .slice(0, 6);
+
+    if (!pastedData) return;
+
+    const newOtp = [...otp];
+
+    pastedData.split("").forEach((char, index) => {
+      if (index < 6) {
+        newOtp[index] = char;
+      }
+    });
+
+    setOtp(newOtp);
+
+    const nextIndex = Math.min(pastedData.length, 5);
+    inputsRef.current[nextIndex]?.focus();
+  };
 
   return (
     <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 px-4">
@@ -131,13 +154,13 @@ export const ResetPasswordModal = ({ onClose }) => {
             </h2>
 
             <p className="text-left text-gray-600">
-              A 6-digit code has been sent to your email. 
+              A 6-digit code has been sent to your email.
               <Link
-            to="/auth/register"
-            className="text-[#36B37E] hover:underline ml-2"
-          >
-            Change
-          </Link>
+                to="/auth/register"
+                className="text-[#36B37E] hover:underline ml-2"
+              >
+                Change
+              </Link>
             </p>
 
             <div className="flex justify-between gap-3">
@@ -150,6 +173,7 @@ export const ResetPasswordModal = ({ onClose }) => {
                   value={digit}
                   onChange={(e) => handleOtpChange(e.target.value, index)}
                   onKeyDown={(e) => handleOtpKeyDown(e, index)}
+                  onPaste={handleOtpPaste}
                   className="w-12 h-12 border border-gray-300 rounded-md text-center text-xl focus:ring-2 focus:ring-green-500 outline-none"
                 />
               ))}
