@@ -32,6 +32,12 @@ import transactionsActive from "./nav/transactions-2.png";
 import profile from "./nav/profile.png";
 import profileActive from "./nav/profile-2.png";
 import arrowLeft from "./arrow-left.png";
+import eye from "./eye.png";
+import eyeCrossed from "./eye-crossed.png";
+import arrowDown from "./arrow-down.png";
+import calendar from "./calendar.png";
+import logoGreen from "./logo-green.png";
+import plus from "./plus.png"
 
 export const assets = {
     logo,
@@ -59,7 +65,13 @@ export const assets = {
     search,
     bell,
     profileImage,
-    arrowLeft
+    arrowLeft,
+    eye,
+    eyeCrossed,
+    arrowDown,
+    calendar,
+    logoGreen,
+    plus
 }
 
 export const navItems = {

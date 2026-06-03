@@ -81,5 +81,39 @@
       "id": 4,
       "method": "payoneer"
     }
-  ]
+  ],
+  "accountSummary": {
+  "accountNumber": "012345678",
+  "accounts": [
+    {
+      "id": 1,
+      "name": "Main Account",
+      "income": 125000.50,
+      "expense": 30000.00,
+      "balance": 95000.50,
+      "currency": "NGN"
+    },
+    {
+      "id": 2,
+      "name": "Savings Account",
+      "income": 350000.00,
+      "expense": 50000.00,
+      "balance": 300000.00,
+      "currency": "NGN"
+    },
+    {
+      "id": 3,
+      "name": "Holiday Plan",
+      "income": 75000.00,
+      "expense": 10000.00,
+      "balance": 65000.00,
+      "currency": "NGN"
+    }
+  ],
+  "summary": {
+    "totalIncome": 550000.50,
+    "totalExpense": 90000.00,
+    "totalBalance": 460500.50
+  }
+}
 }
