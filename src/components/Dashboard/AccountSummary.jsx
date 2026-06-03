@@ -15,7 +15,7 @@ export const AccountSummary = ({ name, balance, showBalance }) => {
         {name}
       </span>
 
-      <span className="text-lg sm:text-xl md:text-2xl 2xl:text-xl font-bold -tracking-[1px] leading-none 2xl:scale-y-150">
+      <span className="text-lg font-bold -tracking-[1px] leading-none 2xl:scale-y-150">
         {showBalance ? "XXXXXXXX" : formatCurrency(balance)}
       </span>
     </div>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { assets } from "../../assets/assets";
 import { AccountSummary } from "./AccountSummary";
+import { TransactionsOverview } from "./TransactionsOverview";
 
 export const Overview = () => {
   const [showBalance, setShowBalance] = useState(true);
@@ -88,7 +89,7 @@ export const Overview = () => {
                   Current Balance
                 </span>
 
-                <span className="text-lg sm:text-xl lg:text-2xl font-bold tracking-tight scale-y-150">
+                <span className="text-lg font-bold tracking-tight scale-y-150">
                   {showBalance ? "XXXXXXXX" : formattedBalance}
                 </span>
               </div>
@@ -99,7 +100,7 @@ export const Overview = () => {
                   Income
                 </span>
 
-                <span className="text-lg sm:text-xl lg:text-2xl font-bold tracking-tight scale-y-150">
+                <span className="text-lg font-bold tracking-tight scale-y-150">
                   {showBalance ? "XXXXXXXX" : formattedIncome}
                 </span>
               </div>
@@ -110,7 +111,7 @@ export const Overview = () => {
                   Expense
                 </span>
 
-                <span className="text-lg sm:text-xl lg:text-2xl font-bold tracking-tight scale-y-150">
+                <span className="text-lg font-bold tracking-tight scale-y-150">
                   {showBalance ? "XXXXXXXX" : formattedExpense}
                 </span>
               </div>
@@ -199,7 +200,16 @@ export const Overview = () => {
       </div>
 
       {/* RIGHT SECTION */}
-      <div className="hidden xl:block xl:flex-2 bg-amber-800 rounded-xl min-h-125" />
+      <div className="hidden xl:flex xl:flex-[2] min-h-125 flex-col justify-between mb-12">
+        <TransactionsOverview />
+        <div style={{ backgroundImage: `url(${assets.bgImage3})` }} className="w-full h-44 rounded-2xl bg-cover ml-2 flex justify-between flex-col px-6 py-4">
+          <img src={assets.arrowRightWhite} alt=""  className="w-10 h-10" />
+          <div className="flex flex-col text-white">
+              <span className="font-semibold text-2xl">Upgrade to PRO</span>
+              <span className="text-sm">Sign in on more than one device</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

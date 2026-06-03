@@ -1,5 +1,6 @@
 import logo from './logo.png'
 import bgImage1 from './bg-image-1.png'
+import bgImage3 from "./bg-image-3.png"
 import savings  from './savings.png'
 import loans from './personal.png'
 import credit from './credit-card.png'
@@ -39,11 +40,14 @@ import calendar from "./calendar.png";
 import logoGreen from "./logo-green.png";
 import logoRed from "./logo-red.png";
 import plus from "./plus.png"
+import arrowRight from "./arrow-right.png"
+import arrowRightWhite from "./arrow-right-white.png"
 
 export const assets = {
     logo,
     bgImage1,
     bgImage2,
+    bgImage3,
     savings,
     loans,
     credit,
@@ -73,7 +77,9 @@ export const assets = {
     calendar,
     logoGreen,
     logoRed,
-    plus
+    plus,
+    arrowRight,
+    arrowRightWhite
 }
 
 export const navItems = {
