@@ -37,6 +37,29 @@ export const VerifyOtp = () => {
     toast.success("OTP Verified");
     setShowSuccess(true);
   };
+  const handleOtpPaste = (e) => {
+  e.preventDefault();
+
+  const pastedData = e.clipboardData
+    .getData("text")
+    .replace(/\D/g, "")
+    .slice(0, 6);
+
+  if (!pastedData) return;
+
+  const newOtp = [...otp];
+
+  pastedData.split("").forEach((char, index) => {
+    if (index < 6) {
+      newOtp[index] = char;
+    }
+  });
+
+  setOtp(newOtp);
+
+  const nextIndex = Math.min(pastedData.length, 5);
+  inputsRef.current[nextIndex]?.focus();
+};
   return (
     <>
       <div className="bg-white p-8 md:p-12 xl:p-16 rounded-3xl w-full max-w-3xl min-h-[330px] shadow-[0_25px_70px_rgba(34,197,94,0.25)]">
@@ -63,6 +86,7 @@ export const VerifyOtp = () => {
                 value={digit}
                 onChange={(e) => handleOtpChange(e.target.value, index)}
                 onKeyDown={(e) => handleOtpKeyDown(e, index)}
+                onPaste={handleOtpPaste}
                 className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 border-gray-300 rounded-lg text-center text-xl focus:ring-2 focus:ring-green-500 outline-none border-2"
               />
             ))}

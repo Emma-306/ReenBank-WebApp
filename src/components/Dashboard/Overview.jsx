@@ -152,12 +152,16 @@ export const Overview = () => {
             <img src={assets.arrowDown} alt="" className="w-4 h-4" />
           </button>
         </div>
-        <div className="flex items-center gap-8 w-full mb-6">
-          <img src={assets.logoGreen} alt="" className="w-12 h-12" />
+        <div className="flex items-center gap-4 sm:gap-8 w-full mb-6">
+          <img
+            src={assets.logoGreen}
+            alt=""
+            className="w-10 h-10 sm:w-12 sm:h-12"
+          />
 
-          <p className="w-20 text-xl font-medium">Income</p>
+          <p className="w-16 sm:w-20 text-lg sm:text-xl font-medium">Income</p>
 
-          <div className="flex-1 h-4 rounded overflow-hidden">
+          <div className="flex-1 h-3 sm:h-4 rounded overflow-hidden">
             <div
               className="h-full bg-green-500 rounded transition-all"
               style={{
@@ -166,16 +170,20 @@ export const Overview = () => {
             />
           </div>
 
-          <p className="w-36 shrink-0 text-right font-semibold text-xl">
+          <p className="w-28 sm:w-36 shrink-0 text-right font-semibold text-lg sm:text-xl whitespace-nowrap">
             {formattedIncome}
           </p>
         </div>
-        <div className="flex items-center gap-8 w-full">
-          <img src={assets.logoRed} alt="" className="w-12 h-12" />
+        <div className="flex items-center gap-4 sm:gap-8 w-full">
+          <img
+            src={assets.logoRed}
+            alt=""
+            className="w-10 h-10 sm:w-12 sm:h-12"
+          />
 
-          <p className="w-20 text-xl font-medium">Expense</p>
+          <p className="w-16 sm:w-20 text-lg sm:text-xl font-medium">Expense</p>
 
-          <div className="flex-1 h-4 rounded overflow-hidden">
+          <div className="flex-1 h-3 sm:h-4 rounded overflow-hidden">
             <div
               className="h-full bg-red-500 rounded transition-all"
               style={{
@@ -184,7 +192,7 @@ export const Overview = () => {
             />
           </div>
 
-          <p className="w-36 shrink-0 text-right font-semibold text-xl">
+          <p className="w-28 sm:w-36 shrink-0 text-right font-semibold text-lg sm:text-xl whitespace-nowrap">
             {formattedExpense}
           </p>
         </div>
