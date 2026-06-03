@@ -37,6 +37,7 @@ import eyeCrossed from "./eye-crossed.png";
 import arrowDown from "./arrow-down.png";
 import calendar from "./calendar.png";
 import logoGreen from "./logo-green.png";
+import logoRed from "./logo-red.png";
 import plus from "./plus.png"
 
 export const assets = {
@@ -71,6 +72,7 @@ export const assets = {
     arrowDown,
     calendar,
     logoGreen,
+    logoRed,
     plus
 }
 

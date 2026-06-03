@@ -11,7 +11,7 @@ export const AccountSummary = ({ name, balance, showBalance }) => {
 
   return (
     <div className="w-full max-w-[200px] 2xl:w-48 flex flex-col items-center justify-center p-4 md:p-6 2xl:py-12 2xl:px-4 rounded-lg bg-green-400/20 shadow">
-      <span className="text-xs sm:text-sm whitespace-nowrap font-medium text-purple-900 mb-1">
+      <span className="text-xs sm:text-sm whitespace-nowrap font-medium text-purple-900 mb-2">
         {name}
       </span>
 

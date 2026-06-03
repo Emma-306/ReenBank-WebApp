@@ -22,8 +22,7 @@ export const Overview = () => {
 
   const income = accountSummary?.summary?.totalIncome || 0;
   const expense = accountSummary?.summary?.totalExpense || 0;
-  const balance =
-    accountSummary?.summary?.totalBalance || income - expense;
+  const balance = accountSummary?.summary?.totalBalance || income - expense;
 
   const formatCurrency = (value) =>
     new Intl.NumberFormat("en-NG", {
@@ -39,10 +38,8 @@ export const Overview = () => {
 
   return (
     <div className="flex flex-col xl:flex-row w-full min-h-full gap-6 xl:gap-12 2xl:gap-16 px-3 sm:px-2 xl:px-6">
-      
       {/* LEFT SECTION */}
       <div className="flex-1 xl:flex-[3] flex flex-col">
-        
         {/* HEADER */}
         <div className="flex flex-row justify-between items-center gap-4">
           <p className="font-semibold text-lg sm:text-xl 2xl:text-2xl block">
@@ -50,7 +47,6 @@ export const Overview = () => {
           </p>
 
           <div className="flex items-center gap-2 sm:gap-3">
-            
             {/* EYE BUTTON */}
             <button
               onClick={() => setShowBalance((prev) => !prev)}
@@ -65,40 +61,30 @@ export const Overview = () => {
 
             {/* DATE PICKER */}
             <button className="hidden xl:flex items-center gap-2 bg-gray-200/80 rounded-lg hover:bg-gray-300 transition px-3 py-2.5 text-xs sm:text-sm cursor-pointer">
-              <img
-                src={assets.calendar}
-                alt=""
-                className="w-4 h-4"
-              />
+              <img src={assets.calendar} alt="" className="w-4 h-4" />
 
-              <span className="text-gray-700 font-medium whitespace-nowrap hidden sm:block">
+              <span className="text-gray-700 font-medium whitespace-nowrap hidden 2xl:block">
                 Feb 22 - Mar 21, 2023
               </span>
 
-              <img
-                src={assets.arrowDown}
-                alt=""
-                className="w-4 h-4"
-              />
+              <img src={assets.arrowDown} alt="" className="w-4 h-4" />
             </button>
           </div>
         </div>
 
         {/* BALANCE CARD */}
-        <div className="w-full bg-green-400/20 mt-5 rounded-xl px-4 sm:px-6 py-12 2xl:py-16">
+        <div className="w-full bg-green-400/20 mt-5 rounded-xl px-4 sm:px-6 py-8">
           <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-10">
-            
             <img
               src={assets.logoGreen}
               alt="logo"
               className="hidden 2xl:block w-12 h-12 object-contain"
             />
 
-            <div className="grid grid-cols-3 gap-6 w-full">
-              
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full">
               {/* BALANCE */}
               <div className="flex flex-col">
-                <span className="text-xs sm:text-sm font-medium text-purple-900">
+                <span className="text-xs sm:text-sm font-medium mb-2 text-purple-900">
                   Current Balance
                 </span>
 
@@ -109,7 +95,7 @@ export const Overview = () => {
 
               {/* INCOME */}
               <div className="flex flex-col">
-                <span className="text-xs sm:text-sm font-medium text-purple-900 ">
+                <span className="text-xs sm:text-sm font-medium mb-2 text-purple-900 ">
                   Income
                 </span>
 
@@ -120,7 +106,7 @@ export const Overview = () => {
 
               {/* EXPENSE */}
               <div className="flex flex-col">
-                <span className="text-xs sm:text-sm font-medium text-purple-900">
+                <span className="text-xs sm:text-sm font-medium mb-2 text-purple-900">
                   Expense
                 </span>
 
@@ -128,16 +114,13 @@ export const Overview = () => {
                   {showBalance ? "XXXXXXXX" : formattedExpense}
                 </span>
               </div>
-
             </div>
           </div>
         </div>
 
         {/* ACCOUNTS HEADER */}
         <div className="flex justify-between items-center mt-10">
-          <p className="font-semibold text-xl sm:text-2xl">
-            Accounts
-          </p>
+          <p className="font-semibold text-xl sm:text-2xl">Accounts</p>
 
           <button className="p-3 bg-gray-200/80 rounded-lg hover:bg-gray-300 transition cursor-pointer">
             <img
@@ -149,7 +132,7 @@ export const Overview = () => {
         </div>
 
         {/* ACCOUNTS */}
-        <div className="w-full mt-3 flex flex-wrap gap-4 xl:gap-7 justify-start 2xl:justify-between">
+        <div className="w-full mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-10 max-w-6xl">
           {accountSummary?.accounts?.map((account) => (
             <AccountSummary
               key={account.id}
@@ -160,18 +143,50 @@ export const Overview = () => {
             />
           ))}
         </div>
-        <div className="w-full mt-12 flex justify-between">
-           <p className="font-semibold text-xl sm:text-2xl">
-            Statistics
-          </p>
+        <div className="w-full mt-12 flex justify-between mb-4">
+          <p className="font-semibold text-xl sm:text-2xl">Statistics</p>
           <button className="p-3 bg-gray-200/80 rounded-lg hover:bg-gray-300 transition cursor-pointer flex flex-row items-center">
-            <p className="text-gray-700 font-medium whitespace-nowrap mr-3 text-xs">This Month</p>
-            <img
-                src={assets.arrowDown}
-                alt=""
-                className="w-4 h-4"
-              />
+            <p className="text-gray-700 font-medium whitespace-nowrap mr-3 text-xs">
+              This Month
+            </p>
+            <img src={assets.arrowDown} alt="" className="w-4 h-4" />
           </button>
+        </div>
+        <div className="flex items-center gap-8 w-full mb-6">
+          <img src={assets.logoGreen} alt="" className="w-12 h-12" />
+
+          <p className="w-20 text-xl font-medium">Income</p>
+
+          <div className="flex-1 h-4 rounded overflow-hidden">
+            <div
+              className="h-full bg-green-500 rounded transition-all"
+              style={{
+                width: `${Math.min((income / 700000) * 100, 100)}%`,
+              }}
+            />
+          </div>
+
+          <p className="w-36 shrink-0 text-right font-semibold text-xl">
+            {formattedIncome}
+          </p>
+        </div>
+        <div className="flex items-center gap-8 w-full">
+          <img src={assets.logoRed} alt="" className="w-12 h-12" />
+
+          <p className="w-20 text-xl font-medium">Expense</p>
+
+          <div className="flex-1 h-4 rounded overflow-hidden">
+            <div
+              className="h-full bg-red-500 rounded transition-all"
+              style={{
+                width: `${Math.min((expense / 500000) * 100, 100)}%`,
+              }}
+            />
+          </div>
+
+          <p className="w-36 shrink-0 text-right font-semibold text-xl">
+            {formattedExpense}
+          </p>
         </div>
       </div>
 
