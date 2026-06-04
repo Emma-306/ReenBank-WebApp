@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { assets } from "../../assets/assets";
 import { AccountSummary } from "./AccountSummary";
 import { TransactionsOverview } from "./TransactionsOverview";
@@ -6,21 +6,28 @@ import { AddAccountModal } from "./AddAccountModal";
 
 export const Overview = () => {
   const [showBalance, setShowBalance] = useState(true);
+  const [accounts, setAccounts] = useState([]);
   const [accountSummary, setAccountSummary] = useState(null);
-  const [ showAddAccountModal, setShowAddAccountModal ] = useState(false);
+  const [showAddAccountModal, setShowAddAccountModal] = useState(false);
+  const fetchData = useCallback(async () => {
+    try {
+      const [summaryRes, accountsRes] = await Promise.all([
+        fetch("http://localhost:3000/accountSummary"),
+        fetch("http://localhost:3000/accounts"),
+      ]);
+
+      const summaryData = await summaryRes.json();
+      const accountsData = await accountsRes.json();
+
+      setAccountSummary(summaryData);
+      setAccounts(accountsData);
+    } catch (error) {
+      console.error("Failed to fetch dashboard data:", error);
+    }
+  }, []);
 
   useEffect(() => {
-    const fetchAccountSummary = async () => {
-      try {
-        const res = await fetch("http://localhost:3000/accountSummary");
-        const data = await res.json();
-        setAccountSummary(data);
-      } catch (error) {
-        console.error("Failed to fetch account summary:", error);
-      }
-    };
-
-    fetchAccountSummary();
+    fetchData();
   }, []);
 
   const income = accountSummary?.summary?.totalIncome || 0;
@@ -125,7 +132,10 @@ export const Overview = () => {
         <div className="flex justify-between items-center mt-10">
           <p className="font-semibold text-xl sm:text-2xl">Accounts</p>
 
-          <button className="p-3 bg-gray-200/80 rounded-lg hover:bg-gray-300 transition cursor-pointer" onClick={() => setShowAddAccountModal(true)}>
+          <button
+            className="p-3 bg-gray-200/80 rounded-lg hover:bg-gray-300 transition cursor-pointer"
+            onClick={() => setShowAddAccountModal(true)}
+          >
             <img
               src={assets.plus}
               alt="add account"
@@ -136,7 +146,7 @@ export const Overview = () => {
 
         {/* ACCOUNTS */}
         <div className="w-full mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-10 max-w-6xl">
-          {accountSummary?.accounts?.map((account) => (
+          {accounts?.map((account) => (
             <AccountSummary
               key={account.id}
               name={account.name}
@@ -204,15 +214,25 @@ export const Overview = () => {
       {/* RIGHT SECTION */}
       <div className="hidden xl:flex xl:flex-[2] min-h-125 flex-col justify-between mb-12">
         <TransactionsOverview />
-        <div style={{ backgroundImage: `url(${assets.bgImage3})` }} className="w-full h-44 rounded-2xl bg-cover ml-2 flex justify-between flex-col px-6 py-4">
-          <img src={assets.arrowRightWhite} alt=""  className="w-10 h-10" />
+        <div
+          style={{ backgroundImage: `url(${assets.bgImage3})` }}
+          className="w-full h-44 rounded-2xl bg-cover ml-2 flex justify-between flex-col px-6 py-4"
+        >
+          <img src={assets.arrowRightWhite} alt="" className="w-10 h-10" />
           <div className="flex flex-col text-white">
-              <span className="font-semibold text-2xl">Upgrade to PRO</span>
-              <span className="text-sm">Sign in on more than one device</span>
+            <span className="font-semibold text-2xl">Upgrade to PRO</span>
+            <span className="text-sm">Sign in on more than one device</span>
           </div>
         </div>
       </div>
-      { showAddAccountModal && (<AddAccountModal onClose={() => setShowAddAccountModal(false)} />) }
+      {showAddAccountModal && (
+        <AddAccountModal
+          onClose={() => {
+            setShowAddAccountModal(false);
+            fetchData();
+          }}
+        />
+      )}
     </div>
   );
 };

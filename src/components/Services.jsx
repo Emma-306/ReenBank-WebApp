@@ -15,9 +15,9 @@ export const Services = () => {
   useEffect(() => {
     const fetchServices = async ()=> {
       try{
-        const response = await fetch('/db.json');
+        const response = await fetch("http://localhost:3000/services");
         const data = await response.json();
-        setServices(data.services);
+        setServices(data);
       } catch (error){
         console.error('Error fetching services:', error);
       }

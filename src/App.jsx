@@ -14,7 +14,7 @@ import { Profile } from "./components/Dashboard/Profile";
 
 export const App = () => {
   return (
-    <div>
+    <div >
       <ToastContainer />
       <Routes>
         <Route path="/" element={<LandingPage />} />

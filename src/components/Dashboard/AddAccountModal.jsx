@@ -161,6 +161,16 @@ export const AddAccountModal = ({ onClose }) => {
                 <span className="font-medium text-gray-700">Credit Card</span>
               </div>
             </div>
+            {paymentMethod === "bank" && (
+              <div>
+                <label className="block font-medium mb-1 mt-4">Amount</label>
+                <input
+                  type="number"
+                  placeholder="100.00"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-4 focus:outline-none focus:ring-2 focus:ring-[#33B37E]"
+                />
+              </div>
+            )}
             {paymentMethod === "card" && (
               <div className="flex flex-col gap-4 mt-6">
                 {/* Amount */}
@@ -229,15 +239,36 @@ export const AddAccountModal = ({ onClose }) => {
               </button>
 
               <button
-              onClick={() => setStep(4)} 
-              className="flex-1 py-3 bg-[#33B37E] text-white rounded-lg font-medium hover:bg-[#2ca06f] transition cursor-pointer">
+                onClick={() => setStep(4)}
+                className="flex-1 py-3 bg-[#33B37E] text-white rounded-lg font-medium hover:bg-[#2ca06f] transition cursor-pointer"
+              >
                 Fund
               </button>
             </div>
           </>
         )}
-        { step === 4 && (
+        {step === 4 && (
           <>
+            <img src={assets.success} alt="" />
+            <div className="text-center space-y-3">
+              <h2 className="text-lg font-semibold text-black/80 ">
+                <p>
+                  <span></span> has been added to your Wallet!
+                </p>
+              </h2>
+            </div>
+
+            {/* BUTTON LEFT */}
+            <div className="text-left">
+              <button
+                onClick={() => {
+                  navigate("/dashboard/accounts");
+                }}
+                className="bg-[#33B37E] w-full h-12 text-white hover:bg-[#2ca06f] rounded-md font-semibold text-lg cursor-pointer mt-3"
+              >
+                Go Back
+              </button>
+            </div>
           </>
         )}
       </div>

@@ -3,117 +3,109 @@
     {
       "id": 1,
       "title": "Savings Accounts",
-      "desc": "Reen Bank could offer a variety of savings accounts with different interest rates and terms, allowing customers to save money and earn interest over time. These accounts could include features like automatic transfers, overdraft protection, and mobile banking access.",
+      "desc": "Reen Bank could offer a variety of savings accounts with different interest rates and terms, allowing customers to save money and earn interest over time.",
       "image": "savings"
     },
     {
       "id": 2,
       "title": "Personal Loans",
-      "desc": "Reen Bank could offer personal loans for a variety of purposes, such as debt consolidation, home improvements, or major purchases. Customers could apply online and receive a decision quickly, with flexible repayment terms and competitive interest rates.",
+      "desc": "Reen Bank could offer personal loans for debt consolidation, home improvements, or major purchases.",
       "image": "loans"
     },
     {
       "id": 3,
       "title": "Credit Cards",
-      "desc": "Reen Bank could offer credit cards with different rewards programs and benefits, such as cash back, travel rewards, or low interest rates. Customers could manage their cards online and receive alerts for suspicious activity or due dates.",
+      "desc": "Reen Bank could offer credit cards with rewards like cashback, travel points, or low interest rates.",
       "image": "credit"
     },
     {
       "id": 4,
       "title": "Investment Services",
-      "desc": "Reen Bank could offer investment services for customers looking to grow their wealth over time. These services could include mutual funds, exchange-traded funds, and other investment vehicles, with access to professional financial advice and analysis.",
+      "desc": "Investment services including mutual funds, ETFs, and professional financial advice.",
       "image": "investment"
     },
     {
       "id": 5,
       "title": "Online Bill Pay",
-      "desc": "Reen Bank could offer a convenient online bill pay service, allowing customers to pay bills and manage expenses from their computer or mobile device. This service could include features like automatic payments, bill reminders, and customizable payment schedules.",
+      "desc": "Pay bills easily with automated reminders and scheduling options.",
       "image": "billpay"
     },
     {
       "id": 6,
       "title": "Business Banking",
-      "desc": "Reen Bank could offer a range of banking services for small and medium-sized businesses, including checking accounts, business loans, merchant services, and cash management tools. These services could help businesses streamline their financial operations and grow their operations over time.",
+      "desc": "Banking services for small and medium-sized businesses.",
       "image": "business"
     }
   ],
+
   "faqs": [
-    { 
+    {
       "id": 1,
       "question": "How do I sign up for an account with Reen Bank?",
-      "answer": "You can sign up for an account with Reen Bank online by visiting our website and filling out the online application form. Once your application is approved, you will receive instructions for setting up your account and accessing our online banking platform."
+      "answer": "You can sign up online via the website application form."
     },
     {
       "id": 2,
       "question": "What types of accounts does Reen Bank offer?",
-      "answer": "Reen Bank offers a variety of accounts including personal checking, savings, business accounts, and specialized investment accounts. Each account type is designed to meet different financial needs, whether you’re managing daily expenses, saving for the future, or running a business."
+      "answer": "We offer checking, savings, business, and investment accounts."
     },
     {
       "id": 3,
       "question": "Is Reen Bank FDIC insured?",
-      "answer": "Yes, Reen Bank is FDIC insured. This means that deposits are protected up to the maximum amount allowed by law, giving you peace of mind that your money is safe."
+      "answer": "Yes, deposits are insured up to legal limits."
     },
     {
       "id": 4,
-      "question": "How can I access my Reen Bank account online?",
-      "answer": "You can access your Reen Bank account online by logging into our secure banking portal using your username and password. From there, you can view balances, transfer funds, pay bills, and manage your account anytime, anywhere."
+      "question": "How can I access my account online?",
+      "answer": "Log in through our secure banking portal anytime."
     },
     {
       "id": 5,
-      "question": "What security measures does Reen Bank have in place to protect my financial information?",
-      "answer": "Reen Bank uses advanced encryption, multi-factor authentication, and continuous monitoring to safeguard your financial information. We also regularly update our systems to stay ahead of potential threats and ensure your data remains secure."
+      "question": "What security measures are used?",
+      "answer": "Encryption, MFA, and continuous monitoring are used."
     }
   ],
-  "paymentMethods":[
-    {
-      "id": 1,
-      "method": "verve"
-    },
-    {
-      "id": 2,
-      "method": "visa"
-    },
-    {
-      "id": 3,
-      "method": "paypal"
-    },
-    {
-      "id": 4,
-      "method": "payoneer"
-    }
+
+  "paymentMethods": [
+    { "id": 1, "method": "verve" },
+    { "id": 2, "method": "visa" },
+    { "id": 3, "method": "paypal" },
+    { "id": 4, "method": "payoneer" }
   ],
-  "accountSummary": {
-  "accountNumber": "012345678",
+
   "accounts": [
     {
       "id": 1,
       "name": "Main Account",
-      "income": 125000.50,
-      "expense": 30000.00,
-      "balance": 95000.50,
+      "income": 125000.5,
+      "expense": 30000,
+      "balance": 95000.5,
       "currency": "NGN"
     },
     {
       "id": 2,
       "name": "Savings Account",
-      "income": 350000.00,
-      "expense": 50000.00,
-      "balance": 300000.00,
+      "income": 350000,
+      "expense": 50000,
+      "balance": 300000,
       "currency": "NGN"
     },
     {
       "id": 3,
       "name": "Holiday Plan",
-      "income": 75000.00,
-      "expense": 10000.00,
-      "balance": 65000.00,
+      "income": 75000,
+      "expense": 10000,
+      "balance": 65000,
       "currency": "NGN"
     }
   ],
-  "summary": {
-    "totalIncome": 550000.50,
-    "totalExpense": 90000.00,
-    "totalBalance": 460500.50
+
+  "accountSummary": {
+    "accountNumber": "012345678",
+    "summary": {
+      "totalIncome": 550000.5,
+      "totalExpense": 90000,
+      "totalBalance": 460500.5
+    }
   }
-}
 }
