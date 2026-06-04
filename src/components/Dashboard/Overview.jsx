@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { assets } from "../../assets/assets";
 import { AccountSummary } from "./AccountSummary";
 import { TransactionsOverview } from "./TransactionsOverview";
+import { AddAccountModal } from "./AddAccountModal";
 
 export const Overview = () => {
   const [showBalance, setShowBalance] = useState(true);
   const [accountSummary, setAccountSummary] = useState(null);
+  const [ showAddAccountModal, setShowAddAccountModal ] = useState(false);
 
   useEffect(() => {
     const fetchAccountSummary = async () => {
@@ -123,7 +125,7 @@ export const Overview = () => {
         <div className="flex justify-between items-center mt-10">
           <p className="font-semibold text-xl sm:text-2xl">Accounts</p>
 
-          <button className="p-3 bg-gray-200/80 rounded-lg hover:bg-gray-300 transition cursor-pointer">
+          <button className="p-3 bg-gray-200/80 rounded-lg hover:bg-gray-300 transition cursor-pointer" onClick={() => setShowAddAccountModal(true)}>
             <img
               src={assets.plus}
               alt="add account"
@@ -210,6 +212,7 @@ export const Overview = () => {
           </div>
         </div>
       </div>
+      { showAddAccountModal && (<AddAccountModal onClose={() => setShowAddAccountModal(false)} />) }
     </div>
   );
 };
