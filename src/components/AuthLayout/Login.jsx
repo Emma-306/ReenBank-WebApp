@@ -2,9 +2,16 @@ import { useState } from "react";
 import { assets } from "../../assets/assets";
 import { ResetPasswordModal } from "./ResetPasswordModal";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
   const [showReset, setShowReset] = useState(false);
+  const navigate = useNavigate();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle login logic here (e.g., API call)
+    navigate("/dashboard");    
+  };
 
   return (
     <>
@@ -68,6 +75,7 @@ export const Login = () => {
 
           <button
             type="submit"
+            onClick={handleSubmit}
             className="bg-green-600/70 mt-2 text-white w-full h-12 hover:bg-green-600 rounded-md font-semibold text-xl cursor-pointer"
           >
             Login

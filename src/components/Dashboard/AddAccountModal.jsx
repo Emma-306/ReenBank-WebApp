@@ -3,12 +3,23 @@ import { toast } from "react-toastify";
 import { assets } from "../../assets/assets";
 import { useNavigate } from "react-router-dom";
 
-export const AddAccountModal = ({ onClose }) => {
+export const AddAccountModal = ({ onClose, startStep = 1, account }) => {
   const navigate = useNavigate();
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(startStep);
   const [accountName, setAccountName] = useState("");
   const [shortDescription, setShortDescription] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("bank");
+
+
+
+  const resetModal = () => {
+    setStep(1);
+    setAccountName("");
+    setShortDescription("");
+    setPaymentMethod("bank");
+    onClose();
+    navigate("/dashboard/accounts");
+  };
 
   const handleAdd = () => {
     if (!accountName.trim()) {
@@ -161,28 +172,16 @@ export const AddAccountModal = ({ onClose }) => {
                 <span className="font-medium text-gray-700">Credit Card</span>
               </div>
             </div>
-            {paymentMethod === "bank" && (
-              <div>
-                <label className="block font-medium mb-1 mt-4">Amount</label>
-                <input
-                  type="number"
-                  placeholder="100.00"
-                  className="w-full border border-gray-300 rounded-lg px-4 py-4 focus:outline-none focus:ring-2 focus:ring-[#33B37E]"
-                />
-              </div>
-            )}
+            <div>
+              <label className="block font-medium mb-1 mt-4">Amount</label>
+              <input
+                type="number"
+                placeholder="100.00"
+                className="w-full border border-gray-300 rounded-lg px-4 py-4 focus:outline-none focus:ring-2 focus:ring-[#33B37E]"
+              />
+            </div>
             {paymentMethod === "card" && (
-              <div className="flex flex-col gap-4 mt-6">
-                {/* Amount */}
-                <div>
-                  <label className="block font-medium mb-1">Amount</label>
-                  <input
-                    type="number"
-                    placeholder="100.00"
-                    className="w-full border border-gray-300 rounded-lg px-4 py-4 focus:outline-none focus:ring-2 focus:ring-[#33B37E]"
-                  />
-                </div>
-
+              <div className="flex flex-col gap-4 mt-4">
                 {/* Card Number */}
                 <div>
                   <label className="block font-medium mb-1">Card Number</label>
@@ -261,9 +260,7 @@ export const AddAccountModal = ({ onClose }) => {
             {/* BUTTON LEFT */}
             <div className="text-left">
               <button
-                onClick={() => {
-                  navigate("/dashboard/accounts");
-                }}
+                onClick={resetModal}
                 className="bg-[#33B37E] w-full h-12 text-white hover:bg-[#2ca06f] rounded-md font-semibold text-lg cursor-pointer mt-3"
               >
                 Go Back
