@@ -131,7 +131,7 @@ export const ResetPasswordModal = ({ onClose }) => {
             </h2>
 
             <p className="text-left text-gray-600">
-              A 6-digit code has been sent to your email. 
+              A 6-digit code has been sent to your email.
               <Link
             to="/auth/register"
             className="text-[#36B37E] hover:underline ml-2"
