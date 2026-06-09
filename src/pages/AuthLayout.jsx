@@ -7,7 +7,7 @@ export const AuthLayout = () => {
 
   return (
     <div
-      className="min-h-screen w-screen bg-repeat flex flex-col md:flex-row items-center justify-center px-6 lg:px-16 xl:px-28 gap-10 md:gap-0"
+      className="min-h-screen w-screen bg-repeat flex flex-col md:flex-row items-center justify-center px-6 lg:px-16 xl:px-28 gap-10 md:gap-0 py-6"
       style={{
         backgroundImage: `url(${assets.bankingTheme})`,
         backgroundSize: "800px 500px",

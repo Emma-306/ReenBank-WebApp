@@ -1,10 +1,16 @@
 import { useState } from "react";
 import { assets } from "../../../assets/assets";
 
-export const AccountOverview = ({ account, isActive, onClick, openModal}) => {
+export const AccountOverview = ({
+  account,
+  isActive,
+  onClick,
+  openModal,
+}) => {
   const [showBalance, setShowBalance] = useState(true);
 
-  const toggleBalance = () => {
+  const toggleBalance = (e) => {
+    e.stopPropagation(); // prevents card click
     setShowBalance((prev) => !prev);
   };
 
@@ -18,37 +24,88 @@ export const AccountOverview = ({ account, isActive, onClick, openModal}) => {
   };
 
   return (
-    <div className="min-w-64 h-48 rounded-xl bg-green-400/20 p-8 flex flex-col justify-between cursor-pointer relative " onClick={onClick}>
+    <div
+      onClick={onClick}
+      className="
+        relative
+        w-full
+        min-w-0
+        sm:min-w-52
+        h-40 sm:h-44 md:h-48
+        rounded-xl
+        bg-green-400/20
+        p-4 sm:p-6 md:p-8
+        flex flex-col justify-between
+        cursor-pointer
+        transition
+        hover:scale-[1.02]
+      "
+    >
+      {/* ACTIVE INDICATOR */}
       {isActive && (
-        <div className="absolute top-0 left-0 bottom-0 bg-purple-900 h-full w-2.5 "></div>
+        <div className="absolute top-0 left-0 bottom-0 w-2 sm:w-2.5 bg-purple-900 h-full rounded-l-xl" />
       )}
-      <div className="flex justify-between items-center">
-        <p className="font-medium text-gray-800">{account.name}</p>
+
+      {/* TOP SECTION */}
+      <div className="flex justify-between items-center gap-2">
+        <p className="font-medium text-gray-800 text-sm sm:text-base truncate">
+          {account.name}
+        </p>
 
         <img
           src={showBalance ? assets.eye : assets.eyeCrossed}
           alt="toggle balance"
-          className="w-4 h-4 cursor-pointer"
+          className="w-4 h-4 sm:w-5 sm:h-5 cursor-pointer shrink-0"
           onClick={toggleBalance}
         />
       </div>
 
+      {/* BALANCE */}
       <div>
-        <p className="text-lg font-bold tracking-tight scale-y-150">
+        <p className="text-base sm:text-lg font-bold tracking-tight scale-y-125 sm:scale-y-150 break-words">
           {showBalance
             ? formatBalance(account.balance, account.currency)
             : "XXXXXXXX"}
         </p>
       </div>
 
-      <div className="flex gap-4 mt-2">
+      {/* BUTTONS */}
+      <div className="flex gap-2 sm:gap-3 mt-2">
         <button
-        onClick={openModal} 
-        className="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-medium py-2 rounded-lg transition cursor-pointer">
+          onClick={(e) => {
+            e.stopPropagation();
+            openModal();
+          }}
+          className="
+            flex-1
+            bg-emerald-500
+            hover:bg-emerald-600
+            text-white
+            text-xs sm:text-sm
+            font-medium
+            py-2
+            rounded-lg
+            transition
+          "
+        >
           Fund
         </button>
 
-        <button className="flex-1 bg-gray-300 border border-gray-200 hover:bg-gray-400 text-black text-sm font-medium py-2 rounded-lg transition cursor-pointer">
+        <button
+          onClick={(e) => e.stopPropagation()}
+          className="
+            flex-1
+            bg-gray-300
+            border border-gray-200
+            hover:bg-gray-400
+            text-black
+            text-xs sm:text-sm
+            font-medium
+            py-2
+            rounded-lg
+            transition
+          "
+        >
           Withdraw
         </button>
       </div>

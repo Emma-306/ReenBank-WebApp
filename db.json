@@ -67,10 +67,9 @@
   ],
 
   "paymentMethods": [
-    { "id": 1, "method": "verve" },
-    { "id": 2, "method": "visa" },
-    { "id": 3, "method": "paypal" },
-    { "id": 4, "method": "payoneer" }
+    { "id": 1, "method": "bank_transfer" },
+    { "id": 2, "method": "credit_card" },
+    { "id": 3, "method": "direct_pay" }
   ],
 
   "accounts": [
@@ -80,7 +79,99 @@
       "income": 125000.5,
       "expense": 30000,
       "balance": 95000.5,
-      "currency": "NGN"
+      "currency": "NGN",
+      "transactions": [
+        {
+          "id": 1,
+          "type": "credit",
+          "name": "Salary",
+          "amount": 120000,
+          "date": "01.Jan.2026 - 08:00",
+          "status": "Completed",
+          "method": "direct_pay"
+        },
+        {
+          "id": 2,
+          "type": "debit",
+          "name": "Rent Payment",
+          "amount": -20000,
+          "date": "02.Jan.2026 - 10:15",
+          "status": "Completed",
+          "method": "bank_transfer"
+        },
+        {
+          "id": 3,
+          "type": "debit",
+          "name": "Electricity Bill",
+          "amount": -5000,
+          "date": "03.Jan.2026 - 12:45",
+          "status": "Completed",
+          "method": "bank_transfer"
+        },
+        {
+          "id": 4,
+          "type": "debit",
+          "name": "Netflix Subscription",
+          "amount": -4500,
+          "date": "04.Jan.2026 - 09:00",
+          "status": "Completed",
+          "method": "credit_card"
+        },
+        {
+          "id": 5,
+          "type": "credit",
+          "name": "Freelance Payment",
+          "amount": 35000,
+          "date": "04.Jan.2026 - 15:20",
+          "status": "Completed",
+          "method": "bank_transfer"
+        },
+        {
+          "id": 6,
+          "type": "debit",
+          "name": "ATM Withdrawal",
+          "amount": -10000,
+          "date": "05.Jan.2026 - 14:20",
+          "status": "Pending",
+          "method": "credit_card"
+        },
+        {
+          "id": 7,
+          "type": "debit",
+          "name": "Fuel Purchase",
+          "amount": -7000,
+          "date": "06.Jan.2026 - 17:00",
+          "status": "Completed",
+          "method": "credit_card"
+        },
+        {
+          "id": 8,
+          "type": "credit",
+          "name": "Transfer Received",
+          "amount": 25000,
+          "date": "07.Jan.2026 - 13:10",
+          "status": "Completed",
+          "method": "bank_transfer"
+        },
+        {
+          "id": 9,
+          "type": "debit",
+          "name": "Supermarket",
+          "amount": -8500,
+          "date": "08.Jan.2026 - 19:35",
+          "status": "Completed",
+          "method": "credit_card"
+        },
+        {
+          "id": 10,
+          "type": "credit",
+          "name": "Bonus",
+          "amount": 50000,
+          "date": "09.Jan.2026 - 09:45",
+          "status": "Completed",
+          "method": "direct_pay"
+        }
+      ]
     },
     {
       "id": 2,
@@ -88,7 +179,99 @@
       "income": 350000,
       "expense": 50000,
       "balance": 300000,
-      "currency": "NGN"
+      "currency": "NGN",
+      "transactions": [
+        {
+          "id": 1,
+          "type": "credit",
+          "name": "Interest Earned",
+          "amount": 5000,
+          "date": "01.Jan.2026 - 00:00",
+          "status": "Completed",
+          "method": "direct_pay"
+        },
+        {
+          "id": 2,
+          "type": "credit",
+          "name": "Transfer from Main",
+          "amount": 100000,
+          "date": "03.Jan.2026 - 12:30",
+          "status": "Completed",
+          "method": "bank_transfer"
+        },
+        {
+          "id": 3,
+          "type": "debit",
+          "name": "Fixed Deposit",
+          "amount": -50000,
+          "date": "04.Jan.2026 - 09:45",
+          "status": "Completed",
+          "method": "bank_transfer"
+        },
+        {
+          "id": 4,
+          "type": "credit",
+          "name": "Monthly Savings",
+          "amount": 25000,
+          "date": "06.Jan.2026 - 08:15",
+          "status": "Completed",
+          "method": "bank_transfer"
+        },
+        {
+          "id": 5,
+          "type": "credit",
+          "name": "Interest Bonus",
+          "amount": 3500,
+          "date": "08.Jan.2026 - 10:00",
+          "status": "Completed",
+          "method": "direct_pay"
+        },
+        {
+          "id": 6,
+          "type": "debit",
+          "name": "Emergency Withdrawal",
+          "amount": -15000,
+          "date": "10.Jan.2026 - 14:20",
+          "status": "Completed",
+          "method": "bank_transfer"
+        },
+        {
+          "id": 7,
+          "type": "credit",
+          "name": "Savings Goal Deposit",
+          "amount": 40000,
+          "date": "12.Jan.2026 - 09:10",
+          "status": "Completed",
+          "method": "bank_transfer"
+        },
+        {
+          "id": 8,
+          "type": "credit",
+          "name": "Investment Return",
+          "amount": 12000,
+          "date": "15.Jan.2026 - 11:30",
+          "status": "Completed",
+          "method": "direct_pay"
+        },
+        {
+          "id": 9,
+          "type": "debit",
+          "name": "Transfer to Main Account",
+          "amount": -20000,
+          "date": "18.Jan.2026 - 16:45",
+          "status": "Pending",
+          "method": "bank_transfer"
+        },
+        {
+          "id": 10,
+          "type": "credit",
+          "name": "Year Start Bonus",
+          "amount": 30000,
+          "date": "20.Jan.2026 - 08:00",
+          "status": "Completed",
+          "method": "direct_pay"
+        }
+      ]
     },
     {
       "id": 3,
@@ -96,7 +279,99 @@
       "income": 75000,
       "expense": 10000,
       "balance": 65000,
-      "currency": "NGN"
+      "currency": "NGN",
+      "transactions": [
+        {
+          "id": 1,
+          "type": "credit",
+          "name": "Savings Deposit",
+          "amount": 50000,
+          "date": "10.Dec.2025 - 11:00",
+          "status": "Completed",
+          "method": "bank_transfer"
+        },
+        {
+          "id": 2,
+          "type": "debit",
+          "name": "Flight Booking",
+          "amount": -25000,
+          "date": "15.Dec.2025 - 16:20",
+          "status": "Completed",
+          "method": "credit_card"
+        },
+        {
+          "id": 3,
+          "type": "credit",
+          "name": "Bonus Deposit",
+          "amount": 25000,
+          "date": "20.Dec.2025 - 09:10",
+          "status": "Pending",
+          "method": "direct_pay"
+        },
+        {
+          "id": 4,
+          "type": "credit",
+          "name": "Vacation Fund Deposit",
+          "amount": 30000,
+          "date": "22.Dec.2025 - 08:30",
+          "status": "Completed",
+          "method": "bank_transfer"
+        },
+        {
+          "id": 5,
+          "type": "debit",
+          "name": "Hotel Reservation",
+          "amount": -18000,
+          "date": "24.Dec.2025 - 14:15",
+          "status": "Completed",
+          "method": "credit_card"
+        },
+        {
+          "id": 6,
+          "type": "credit",
+          "name": "Travel Savings Deposit",
+          "amount": 20000,
+          "date": "28.Dec.2025 - 10:45",
+          "status": "Completed",
+          "method": "bank_transfer"
+        },
+        {
+          "id": 7,
+          "type": "debit",
+          "name": "Travel Insurance",
+          "amount": -7500,
+          "date": "30.Dec.2025 - 13:00",
+          "status": "Completed",
+          "method": "credit_card"
+        },
+        {
+          "id": 8,
+          "type": "debit",
+          "name": "Visa Processing Fee",
+          "amount": -12000,
+          "date": "02.Jan.2026 - 09:20",
+          "status": "Completed",
+          "method": "bank_transfer"
+        },
+        {
+          "id": 9,
+          "type": "credit",
+          "name": "Holiday Bonus",
+          "amount": 35000,
+          "date": "05.Jan.2026 - 12:10",
+          "status": "Completed",
+          "method": "direct_pay"
+        },
+        {
+          "id": 10,
+          "type": "debit",
+          "name": "Beach Resort Booking",
+          "amount": -22000,
+          "date": "08.Jan.2026 - 15:30",
+          "status": "Pending",
+          "method": "credit_card"
+        }
+      ]
     }
   ],
 
