@@ -10,7 +10,7 @@ export const Register = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const [checked, setChecked] = useState(false);
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!name.trim() || !email.trim() || !password.trim()) {
@@ -30,7 +30,35 @@ export const Register = () => {
       return;
     }
 
-    navigate("/auth/verify-otp");
+    try {
+      const res = await fetch("http://localhost:4000/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        toast.error(data.message || "Registration failed");
+        return;
+      }
+
+      toast.success("Account created! Check OTP");
+
+      localStorage.setItem("otpEmail", email);
+
+      navigate("/auth/verify-otp");
+    } catch (error) {
+      console.error(error);
+      toast.error("Something went wrong");
+    }
   };
   return (
     <>

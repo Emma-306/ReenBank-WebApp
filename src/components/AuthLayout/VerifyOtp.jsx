@@ -25,8 +25,9 @@ export const VerifyOtp = () => {
     }
   };
 
-  const handleConfirmOtp = (e) => {
-    e.preventDefault()
+  const handleConfirmOtp = async (e) => {
+    e.preventDefault();
+
     const code = otp.join("");
 
     if (code.length !== 6) {
@@ -34,32 +35,55 @@ export const VerifyOtp = () => {
       return;
     }
 
-    toast.success("OTP Verified");
-    setShowSuccess(true);
+    try {
+      const res = await fetch("http://localhost:4000/auth/verify-otp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          otp: code,
+        }),
+        credentials: "include",
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        toast.error(data.message || "OTP verification failed");
+        return;
+      }
+
+      toast.success("OTP Verified Successfully");
+      setShowSuccess(true);
+    } catch (error) {
+      console.error(error);
+      toast.error("Something went wrong");
+    }
   };
   const handleOtpPaste = (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const pastedData = e.clipboardData
-    .getData("text")
-    .replace(/\D/g, "")
-    .slice(0, 6);
+    const pastedData = e.clipboardData
+      .getData("text")
+      .replace(/\D/g, "")
+      .slice(0, 6);
 
-  if (!pastedData) return;
+    if (!pastedData) return;
 
-  const newOtp = [...otp];
+    const newOtp = [...otp];
 
-  pastedData.split("").forEach((char, index) => {
-    if (index < 6) {
-      newOtp[index] = char;
-    }
-  });
+    pastedData.split("").forEach((char, index) => {
+      if (index < 6) {
+        newOtp[index] = char;
+      }
+    });
 
-  setOtp(newOtp);
+    setOtp(newOtp);
 
-  const nextIndex = Math.min(pastedData.length, 5);
-  inputsRef.current[nextIndex]?.focus();
-};
+    const nextIndex = Math.min(pastedData.length, 5);
+    inputsRef.current[nextIndex]?.focus();
+  };
   return (
     <>
       <div className="bg-white p-8 md:p-12 xl:p-16 rounded-3xl w-full max-w-3xl min-h-[330px] shadow-[0_25px_70px_rgba(34,197,94,0.25)]">
@@ -102,14 +126,10 @@ export const VerifyOtp = () => {
         </form>
         <p className="text-left text-gray-400 mt-6">
           Didn't receive the code?{" "}
-          <Link
-            className="text-[#36B37E] hover:underline ml-3.5"
-          >
-            Resend
-          </Link>
+          <Link className="text-[#36B37E] hover:underline ml-3.5">Resend</Link>
         </p>
       </div>
-      {showSuccess && <EmailSuccess /> }
+      {showSuccess && <EmailSuccess />}
     </>
   );
 };

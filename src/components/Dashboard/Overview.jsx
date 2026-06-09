@@ -11,16 +11,12 @@ export const Overview = () => {
   const [showAddAccountModal, setShowAddAccountModal] = useState(false);
   const fetchData = useCallback(async () => {
     try {
-      const [summaryRes, accountsRes] = await Promise.all([
-        fetch("http://localhost:3000/accountSummary"),
-        fetch("http://localhost:3000/accounts"),
-      ]);
+      const response = await fetch("/db.json");
+      const data = await response.json();
 
-      const summaryData = await summaryRes.json();
-      const accountsData = await accountsRes.json();
 
-      setAccountSummary(summaryData);
-      setAccounts(accountsData);
+      setAccountSummary(data.accountSummary);
+      setAccounts(data.accounts);
     } catch (error) {
       console.error("Failed to fetch dashboard data:", error);
     }
