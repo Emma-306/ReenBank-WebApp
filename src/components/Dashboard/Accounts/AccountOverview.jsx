@@ -52,7 +52,7 @@ export const AccountOverview = ({
         </p>
 
         <img
-          src={showBalance ? assets.eye : assets.eyeCrossed}
+          src={showBalance ? assets.eyeCrossed  :  assets.eye}
           alt="toggle balance"
           className="w-4 h-4 sm:w-5 sm:h-5 cursor-pointer shrink-0"
           onClick={toggleBalance}

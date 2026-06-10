@@ -13,7 +13,7 @@ import { TransactionsOverviewSkeleton } from "./Skeletons/TransactionsOverviewSk
 import { UpgradeCardSkeleton } from "./Skeletons/UpgradeCardSkeleton";
 
 export const Overview = () => {
-  const [showBalance, setShowBalance] = useState(true);
+  const [showBalance, setShowBalance] = useState(false);
   const [accounts, setAccounts] = useState([]);
   const [accountSummary, setAccountSummary] = useState(null);
   const [showAddAccountModal, setShowAddAccountModal] = useState(false);

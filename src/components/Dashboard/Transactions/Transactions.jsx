@@ -14,6 +14,13 @@ export const Transactions = () => {
   const displayedTransactions =
     selectedAccount?.transactions?.slice(-visibleTransactions).reverse() || [];
 
+  const toggleBalance = (index) => {
+    setShowBalance((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -22,6 +29,13 @@ export const Transactions = () => {
         const response = await fetch("/db.json");
         const data = await response.json();
         setAccounts(data.accounts);
+        const initialVisibility = {};
+
+        data.accounts.forEach((_, index) => {
+          initialVisibility[index] = true;
+        });
+
+        setShowBalance(initialVisibility);
       } catch (error) {
         console.error("Failed to fetch dashboard data:", error);
       } finally {
@@ -35,13 +49,6 @@ export const Transactions = () => {
   const handleAccountClick = (index) => {
     setActiveAccount(index);
     setVisibleTransactions(6);
-  };
-
-  const toggleBalance = (index) => {
-    setShowBalance((prev) => ({
-      ...prev,
-      [index]: !prev[index],
-    }));
   };
 
   return (
@@ -74,7 +81,7 @@ export const Transactions = () => {
                   </h3>
 
                   <img
-                    src={showBalance[index] ? assets.eyeCrossed : assets.eye}
+                    src={showBalance[index] ? assets.eyeCrossed :  assets.eye}
                     alt="toggle balance"
                     onClick={(e) => {
                       e.stopPropagation();
@@ -85,11 +92,12 @@ export const Transactions = () => {
                 </div>
 
                 <p className="text-lg font-bold tracking-tight scale-y-150 mt-3">
-                  ₦{" "}
-                  {account.balance.toLocaleString(undefined, {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2,
-                  })}
+                  {showBalance[index]
+                    ? `₦ ${account.balance.toLocaleString(undefined, {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                      })}`
+                    : "XXXXXXXXXX"}
                 </p>
               </div>
             ))}
