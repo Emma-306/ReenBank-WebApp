@@ -3,9 +3,13 @@ import { Outlet } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { LogoutModal } from "../components/Dashboard/LogoutModal";
 
 export const Dashboard = () => {
+  const navigate = useNavigate();
   const location = useLocation();
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const getPageTitle = () => {
     const path = location.pathname;
@@ -52,7 +56,8 @@ export const Dashboard = () => {
 
               <img
                 src={assets.profileImage}
-                className="h-8 w-8 rounded-full object-cover"
+                className="h-8 w-8 rounded-full object-cover cursor-pointer"
+                onClick={() => navigate("/dashboard/profile")}
               />
             </div>
           </div>
@@ -129,7 +134,7 @@ export const Dashboard = () => {
             </div>
 
             {/* PROFILE */}
-            <img src={assets.profileImage} className="h-10 xl:h-12 w-auto" />
+            <img src={assets.profileImage} className="h-10 xl:h-12 w-auto cursor-pointer" onClick={() => navigate("/dashboard/profile")} />
           </div>
         </div>
       </header>
@@ -252,7 +257,7 @@ export const Dashboard = () => {
           </div>
 
           {/* LOGOUT */}
-          <button className="py-2 text-black/50 flex-row items-center justify-start gap-3 md:gap-8 font-semibold cursor-pointer inline-flex max-sm:text-sm">
+          <button className="py-2 text-black/50 flex-row items-center justify-start gap-3 md:gap-8 font-semibold cursor-pointer inline-flex max-sm:text-sm" onClick={() => setShowLogoutModal(true)}>
             <img
               src={assets.arrowLeft}
               alt="logout"
@@ -266,6 +271,7 @@ export const Dashboard = () => {
           <Outlet />
         </section>
       </main>
+      {showLogoutModal && <LogoutModal onClose={() => setShowLogoutModal(false)} />}
     </div>
   );
 };

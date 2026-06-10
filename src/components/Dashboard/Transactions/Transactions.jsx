@@ -65,9 +65,10 @@ export const Transactions = () => {
             </div>
 
             <p className="text-lg font-bold tracking-tight scale-y-150 mt-3">
-              {showBalance[index]
-                ? "XXXXXXXX"
-                : `₦ ${account.balance.toFixed(2)}`}
+              ₦ {account.balance.toLocaleString(undefined, {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              })}
             </p>
           </div>
         ))}

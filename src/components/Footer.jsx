@@ -44,6 +44,7 @@ export const Footer = () => {
 
           <button className="bg-green-400 text-white px-8 py-2 rounded">
             Get Started
+              
           </button>
         </div>
       </div>
