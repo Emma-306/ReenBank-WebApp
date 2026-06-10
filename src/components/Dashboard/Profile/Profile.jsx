@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { assets } from "../../../assets/assets";
 import { TransactionsOverview } from "../TransactionsOverview";
+import { ResetPasswordModal } from "../../AuthLayout/ResetPasswordModal";
 
 export const Profile = () => {
   const [accounts, setAccounts] = useState([]);
   const [activeAccountId, setActiveAccountId] = useState(null);
   const [showBalance, setShowBalance] = useState(true);
+  const [showResetPasswordModal, setShowResetPasswordModal] = useState(false);
 
   const selectedAccount = accounts.find(
     (account) => account.id === activeAccountId,
@@ -34,6 +36,7 @@ export const Profile = () => {
   }, []);
 
   return (
+    <>
     <div className="flex flex-col xl:flex-row w-full h-full gap-6 xl:gap-12 2xl:gap-16 px-3 sm:px-2 xl:px-6">
       {/* LEFT SECTION */}
       <div className="flex-1 xl:flex-[3] flex justify-center items-center">
@@ -90,7 +93,9 @@ export const Profile = () => {
             </div>
           </div>
 
-          <button className="mt-8 w-full h-12 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-xl cursor-pointer transition">
+          <button
+           onClick={() => setShowResetPasswordModal(true)} 
+          className="mt-8 w-full h-12 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-xl cursor-pointer transition">
             Reset Password
           </button>
         </div>
@@ -122,5 +127,11 @@ export const Profile = () => {
         <TransactionsOverview />
       </div>
     </div>
+    {showResetPasswordModal && (
+  <ResetPasswordModal
+    onClose={() => setShowResetPasswordModal(false)}
+  />
+)}
+    </>
   );
 };
