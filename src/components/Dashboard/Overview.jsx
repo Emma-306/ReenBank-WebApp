@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import { assets } from "../../assets/assets";
 import { AccountSummary } from "./AccountSummary";
 import { TransactionsOverview } from "./TransactionsOverview";
@@ -9,23 +9,21 @@ export const Overview = () => {
   const [accounts, setAccounts] = useState([]);
   const [accountSummary, setAccountSummary] = useState(null);
   const [showAddAccountModal, setShowAddAccountModal] = useState(false);
-  const fetchData = useCallback(async () => {
+  const fetchData = async () => {
     try {
       const response = await fetch("/db.json");
       const data = await response.json();
-
 
       setAccountSummary(data.accountSummary);
       setAccounts(data.accounts);
     } catch (error) {
       console.error("Failed to fetch dashboard data:", error);
     }
-  }, []);
+  };
 
   useEffect(() => {
     fetchData();
   }, []);
-
   const income = accountSummary?.summary?.totalIncome || 0;
   const expense = accountSummary?.summary?.totalExpense || 0;
   const balance = accountSummary?.summary?.totalBalance || income - expense;

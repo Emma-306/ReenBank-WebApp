@@ -9,8 +9,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { Dashboard } from "./pages/Dashboard";
 import { Overview } from "./components/Dashboard/Overview";
 import { Accounts } from "./components/Dashboard/Accounts/Accounts";
-import { Transactions } from "./components/Dashboard/Transactions";
-import { Profile } from "./components/Dashboard/Profile";
+import { Transactions } from "./components/Dashboard/Transactions/Transactions";
+import { Profile } from "./components/Dashboard/Profile/Profile";
 
 export const App = () => {
   return (

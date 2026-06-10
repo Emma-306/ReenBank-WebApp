@@ -6,6 +6,7 @@ export const AccountOverview = ({
   isActive,
   onClick,
   openModal,
+  openWithdrawModal,
 }) => {
   const [showBalance, setShowBalance] = useState(true);
 
@@ -22,7 +23,6 @@ export const AccountOverview = ({
       maximumFractionDigits: 2,
     }).format(amount);
   };
-
   return (
     <div
       onClick={onClick}
@@ -36,19 +36,18 @@ export const AccountOverview = ({
         bg-green-400/20
         p-4 sm:p-6 md:p-8
         flex flex-col justify-between
-        cursor-pointer
         transition
         hover:scale-[1.02]
       "
     >
       {/* ACTIVE INDICATOR */}
       {isActive && (
-        <div className="absolute top-0 left-0 bottom-0 w-2 sm:w-2.5 bg-purple-900 h-full rounded-l-xl" />
+        <div className="absolute top-0 left-0 bottom-0 w-2 sm:w-2.5 bg-purple-900 h-full" />
       )}
 
       {/* TOP SECTION */}
       <div className="flex justify-between items-center gap-2">
-        <p className="font-medium text-gray-800 text-sm sm:text-base truncate">
+        <p className="font-medium text-purple-900 text-sm sm:text-base truncate">
           {account.name}
         </p>
 
@@ -86,13 +85,17 @@ export const AccountOverview = ({
             py-2
             rounded-lg
             transition
+            cursor-pointer
           "
         >
           Fund
         </button>
 
         <button
-          onClick={(e) => e.stopPropagation()}
+          onClick={(e) => {
+            e.stopPropagation();
+            openWithdrawModal();
+          }}
           className="
             flex-1
             bg-gray-300
@@ -104,6 +107,7 @@ export const AccountOverview = ({
             py-2
             rounded-lg
             transition
+            cursor-pointer
           "
         >
           Withdraw

@@ -2,17 +2,33 @@ import { useEffect, useState } from "react";
 import { AccountOverview } from "./AccountOverview";
 import { AddAccountModal } from "../AddAccountModal";
 import { useNavigate } from "react-router-dom";
+import { WithdrawModal } from "./WithdrawModal";
 
 export const Accounts = () => {
   const navigate = useNavigate();
   const [accounts, setAccounts] = useState([]);
   const [activeAccountId, setActiveAccountId] = useState(null);
   const [showAddAccountModal, setShowAddAccountModal] = useState(false);
+  const [showWithdrawModal, setShowWithdrawModal] = useState(false);
+  const [selectedAccountId, setSelectedAccountId] = useState(null);
   const [modalStartStep, setModalStartStep] = useState(1);
+
+  const selectedAccount = accounts.find(
+    (account) => account.id === selectedAccountId
+  );
 
   const openModal = (step = 1) => {
     setModalStartStep(step);
     setShowAddAccountModal(true);
+  };
+
+  const openWithdrawModal = (accountId) => {
+    setSelectedAccountId(accountId);
+    setShowWithdrawModal(true);
+  };
+
+  const closeWithdrawModal = () => {
+    setShowWithdrawModal(false);
   };
 
   const closeModal = () => setShowAddAccountModal(false);
@@ -48,6 +64,7 @@ export const Accounts = () => {
               isActive={account.id === activeAccountId}
               onClick={() => setActiveAccountId(account.id)}
               openModal={() => openModal(3)}
+              openWithdrawModal={() => openWithdrawModal(account.id)}
             />
           ))}
 
@@ -93,7 +110,7 @@ export const Accounts = () => {
 
         {/* TRANSACTIONS */}
         {activeAccount && (
-          <div className="mt-12">
+          <div className="mt-12 ">
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-2xl font-semibold">Transactions</h2>
 
@@ -221,6 +238,11 @@ export const Accounts = () => {
           account={accounts}
         />
       )}
+      {
+        showWithdrawModal && (
+          <WithdrawModal account={selectedAccount} onClose={closeWithdrawModal} />
+        )
+      }
     </>
   );
 };
